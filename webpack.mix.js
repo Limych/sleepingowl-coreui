@@ -5,6 +5,10 @@
 // noinspection JSAnnotator
 let mix = require('laravel-mix');
 
+const replace = require('replace-in-file');
+
+mix.setPublicPath('public');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -17,6 +21,15 @@ let mix = require('laravel-mix');
  */
 
 // CoreUI assets
-mix.setPublicPath('public')
-    .sass('resources/assets/sass/coreui-app.scss', 'public/css/')
-    .js('resources/assets/js/coreui-app.js', 'public/js/');
+mix.sass('resources/assets/sass/coreui-app.scss', 'public/css/')
+    .sass('resources/assets/sass/fonts.scss', 'public/css/')
+    .js('resources/assets/js/coreui-app.js', 'public/js/')
+    .then(function () {
+        // Patch absolute URLs in CSS styles
+        replace.sync({
+            files: 'public/css/*.css',
+            from: 'url(/',
+            to: 'url(/packages/sleepingowl/coreui/'
+        });
+    });
+

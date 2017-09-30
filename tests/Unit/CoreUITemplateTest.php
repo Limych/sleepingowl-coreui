@@ -22,8 +22,6 @@ class CoreUITemplateTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-
-        $this->template = new CoreUITemplate();
     }
 
     /**
