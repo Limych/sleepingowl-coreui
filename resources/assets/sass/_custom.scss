@@ -8,6 +8,10 @@
     margin-top: $navbar-height;
 }
 
+.app-header.navbar .navbar-brand {
+    border-bottom: 0;
+}
+
 .aside-menu-toggler {
     padding-left: 0 !important;
 }

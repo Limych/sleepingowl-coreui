@@ -11456,7 +11456,7 @@ base-chart.chart {
 .brand-minimized .app-header.navbar .navbar-brand {
   width: 50px;
   background-color: #fff;
-  background-image: url(/images/vendor/@coreui/vue/Vue_Full_Project/static/logo-symbol.png?d685871143bf53116d73734a7007585b);
+  background-image: url(/packages/sleepingowl/coreui/images/vendor/@coreui/vue/Vue_Full_Project/static/logo-symbol.png?d685871143bf53116d73734a7007585b);
   background-size: 24px;
 }
 
@@ -13977,6 +13977,10 @@ hr.transparent {
 
 .header-fixed .app-header ~ * {
   margin-top: 55px;
+}
+
+.app-header.navbar .navbar-brand {
+  border-bottom: 0;
 }
 
 .aside-menu-toggler {

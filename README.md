@@ -5,38 +5,75 @@ CoreUI Dashboard Template for SleepingOwl
 
 1. Require this package in your `composer.json` and run composer update:
 
-    ```
+    ```bash
     $ composer require limych/sleepingowl-coreui:dev-master
     ```
 
-2. (Only for Laravel <= 5.4) After composer update, insert service provider in `onfig/app.php`:
+2. *(If you are on Laravel 5.5+ you can skip this step)* After composer update, insert service provider in `config/app.php`:
+	```php
+    <?php
+    
+    return [
+       
+        // ...
+       
+        'providers' => [
+           
+            /*
+             * Laravel Framework Service Providers...
+             */
+            // ...
+            
+            /*
+             * Package Service Providers...
+             */
+            Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider::class,
+            // ...
+        
+            /*
+             * Application Service Providers...
+             */
+            // ...
+           
+        ],
+       
+        // ...
+       
+    ];
 	```
-    ...
-    /*
-     * Package Service Providers...
-     */
-    Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider::class,
 
-    ...
-	```
+3. Package assets will be automatically published to `public` directory of your project on first run.
 
-3. Run this command in the terminal to install package config and assets:
+    If you want to override package config you can manually install it to `config` directory by run this command:
 
+    ```bash
+    $ php artisan vendor:publish --provider="Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider" --tag=config
     ```
-    $ php artisan vendor:publish --provider="Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider"
+    
+    If you want to override package views you can manually install them to project `public` directory by run this command:
+
+    ```bash
+    $ php artisan vendor:publish --provider="Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider" --tag=views
     ```
 
 4. Replace old template in `config/sleeping_owl.php` to new:
 
-    ```
-    ...
-    /*
-    |--------------------------------------------------------------------------
-    |  Admin panel template
-    |--------------------------------------------------------------------------
-    */
+    ```php
+    <?php
 
-    'template' => Limych\SleepingOwlCoreUI\Templates\CoreUITemplate::class,
+    return [
+     
+        // ...
+     
+        /*
+        |--------------------------------------------------------------------------
+        |  Admin panel template
+        |--------------------------------------------------------------------------
+        */
     
-    ...
+        'template' => Limych\SleepingOwlCoreUI\Templates\CoreUITemplate::class,
+        
+        // ...
+     
+    ];
     ```

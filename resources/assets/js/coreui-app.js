@@ -1,21 +1,26 @@
+import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
+import SidebarMinimizer from "@coreui/vue/Vue_Full_Project/src/components/SidebarMinimizer";
+import MobileSidebarToggler from "./components/MobileSidebarToggler.vue";
+import SidebarToggler from "./components/SidebarToggler.vue";
+import AsideToggler from "./components/AsideToggler.vue";
 
-require('./libs/vuejs');
+Vue.use(BootstrapVue);
 
-// Vue
-
-// window.Vue = require('vue');
-// window.BootstrapVue = require('bootstrap-vue');
-//
-// Vue.use(BootstrapVue);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-// Vue.component('example', require('./components/Example.vue'));
-
-const app = new Vue({
-    el: '#vueApp'
+window.app = new Vue({
+    el: '#vueApp',
+    computed: {
+        hasSidebar: function () {
+            return document.getElementsByClassName('sidebar').length !== 0;
+        },
+        hasAside: function () {
+            return document.getElementsByClassName('aside-menu').length !== 0;
+        }
+    },
+    components: {
+        SidebarMinimizer,
+        MobileSidebarToggler,
+        SidebarToggler,
+        AsideToggler
+    }
 });
