@@ -5,13 +5,16 @@
 
 namespace Limych\SleepingOwlCoreUI\Providers;
 
+use Blade;
 use Illuminate\Support\ServiceProvider;
 use Limych\SleepingOwlCoreUI\Templates\CoreUITemplate;
 
 class CoreUIServiceProvider extends ServiceProvider
 {
 
-    const ASSETS_URL = 'packages/sleepingowl/coreui/';
+    const PACKAGE_NS = 'coreui';
+
+    const ASSETS_URL = 'packages/sleepingowl/' . self::PACKAGE_NS . '/';
 
     protected $package_dir;
 
@@ -33,9 +36,9 @@ class CoreUIServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->alias(CoreUITemplate::class, 'coreui');
+        $this->app->alias(CoreUITemplate::class, self::PACKAGE_NS);
 
-        $this->mergeConfigFrom($this->package_dir . '/config/coreui.php', 'coreui');
+        $this->mergeConfigFrom($this->package_dir . '/config/coreui.php', self::PACKAGE_NS);
     }
 
     /**
@@ -43,17 +46,36 @@ class CoreUIServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom($this->package_dir . '/resources/views', 'coreui');
-
-        // Publish configs
+        // Package configs
         $this->publishes([
-            $this->package_dir . '/config/coreui.php' => config_path('coreui.php'),
+            $this->package_dir . '/config/coreui.php' => config_path(self::PACKAGE_NS . '.php'),
         ], 'config');
 
-        // Publish assets
+        // Package views
+        $this->loadViewsFrom($this->package_dir . '/resources/views', self::PACKAGE_NS);
+        $this->publishes([
+            $this->package_dir . '/resources/views' => resource_path('views/vendor/' . self::PACKAGE_NS),
+        ]);
+
+        // Package assets
         $this->publishes([
             $this->package_dir . '/public/' => public_path(self::ASSETS_URL),
         ], 'public');
+        //
+        // Publish package assets on first run
+        if (config(self::PACKAGE_NS . '.publish_assets', true)
+            && ! $this->app->runningInConsole() && ! file_exists(public_path(self::ASSETS_URL))
+        ) {
+            \Artisan::call('vendor:publish', [
+                '--provider' => self::class,
+                '--tag' => 'public',
+            ]);
+        }
+
+        // Extending Blade
+        Blade::directive('hasStack', function ($section) {
+            return '<?php if(trim($__env->yieldPushContent(' . $section . '))): ?>';
+        });
     }
 
 }
