@@ -6,6 +6,7 @@
 let mix = require('laravel-mix');
 
 const replace = require('replace-in-file');
+const del = require('del');
 
 mix.setPublicPath('public');
 
@@ -25,10 +26,12 @@ mix.sass('resources/assets/sass/coreui-app.scss', 'public/css/')
     .sass('resources/assets/sass/fonts.scss', 'public/css/')
     .js('resources/assets/js/coreui-app.js', 'public/js/')
     .then(function () {
+        del(['public/mix-manifest.json']);
+
         // Patch absolute URLs in CSS styles
         replace.sync({
             files: 'public/css/*.css',
-            from: 'url(/',
+            from: /url\(\//g,
             to: 'url(/packages/sleepingowl/coreui/'
         });
     });
