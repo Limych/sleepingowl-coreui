@@ -7,11 +7,11 @@
         @stack('navbar')
     </b-nav>
 @endif
-<div class="ml-auto">
-    @hasStack('navbar.right')
-        <b-nav is-nav-bar>
-            @stack('navbar.right')
-        </b-nav>
-    @endif
+@hasStack('navbar.right')
+    <b-nav is-nav-bar class="ml-auto">
+        @stack('navbar.right')
+    </b-nav>
     <aside-toggler v-if="hasAside"></aside-toggler>
-</div>
+@else
+    <aside-toggler v-if="hasAside" class="ml-auto"></aside-toggler>
+@endif

@@ -1,15 +1,9 @@
-/**
- * CoreUI - Open Source Bootstrap Admin Template
- * @version v1.0.0
- * @link http://coreui.io
- * Copyright (c) 2017 creativeLabs Łukasz Holeczek
- * @license MIT
- */
 // Override Boostrap variables
 @import "variables";
 
 // Import Bootstrap source files from node_modules
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-vue/dist/bootstrap-vue";
 
 // Import CoreUI styles
 @import "~@coreui/vue/Vue_Full_Project/scss/core/core";
