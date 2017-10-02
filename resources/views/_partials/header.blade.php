@@ -3,12 +3,12 @@
 <sidebar-toggler v-if="hasSidebar"></sidebar-toggler>
 
 @hasStack('navbar')
-    <b-nav is-nav-bar class="d-md-down-none">
+    <b-nav v-cloak is-nav-bar class="d-md-down-none">
         @stack('navbar')
     </b-nav>
 @endif
 @hasStack('navbar.right')
-    <b-nav is-nav-bar class="ml-auto">
+    <b-nav v-cloak is-nav-bar class="ml-auto">
         @stack('navbar.right')
     </b-nav>
     <aside-toggler v-if="hasAside"></aside-toggler>

@@ -2,7 +2,10 @@
  * Copyright (c) 2017 Andrey "Limych" Khrolenok <andrey@khrolenok.ru>
  */
 
-// Here you can add other styles
+// Hide un-compiled mustache bindings until the Vue instance is ready
+[v-cloak] {
+    display: none;
+}
 
 .header-fixed .app-header + * {
     margin-top: $navbar-height;

@@ -1,4 +1,4 @@
-<b-nav-item-dropdown right id="account-menu">
+<b-nav-item-dropdown v-cloak right id="account-menu">
     <template slot="button-content">
         <img src="{{ gravatar($user->email)->s(35)->d('mm')->e('jpg') }}" class="img-avatar" alt="{{ $user->email }}" />
         <span class="d-md-down-none">{{ $user->name }}</span>
