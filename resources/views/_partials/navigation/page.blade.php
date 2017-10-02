@@ -18,7 +18,7 @@
 @elseif($hasChild)
     {{-- Group of Pages --}}
     <li class="nav-item nav-dropdown @if($isActive)open @endif">
-        <a class="nav-link nav-dropdown-toggle @if($isActive)active @endif" href="{{ $url }}">
+        <a class="nav-link nav-dropdown-toggle @if($isActive)active @endif" href="#" @click="handleNavClick">
             {!! $icon !!}{!! $title !!}
 
             @if($badges->count() > 0)

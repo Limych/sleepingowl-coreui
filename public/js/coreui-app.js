@@ -216,12 +216,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+
+
+
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_bootstrap_vue__["a" /* default */]);
-
-
-
-
-
 
 window.app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#vueApp',
@@ -238,6 +237,12 @@ window.app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         MobileSidebarToggler: __WEBPACK_IMPORTED_MODULE_3__components_MobileSidebarToggler_vue___default.a,
         SidebarToggler: __WEBPACK_IMPORTED_MODULE_4__components_SidebarToggler_vue___default.a,
         AsideToggler: __WEBPACK_IMPORTED_MODULE_5__components_AsideToggler_vue___default.a
+    },
+    methods: {
+        handleNavClick: function handleNavClick(e) {
+            e.preventDefault();
+            e.target.parentElement.classList.toggle('open');
+        }
     }
 });
 

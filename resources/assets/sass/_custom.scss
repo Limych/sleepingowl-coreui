@@ -4,7 +4,7 @@
 
 // Here you can add other styles
 
-.header-fixed .app-header ~ * {
+.header-fixed .app-header + * {
     margin-top: $navbar-height;
 }
 

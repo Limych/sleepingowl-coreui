@@ -55,7 +55,7 @@ class CoreUIServiceProvider extends ServiceProvider
         $this->loadViewsFrom($this->package_dir . '/resources/views', self::PACKAGE_NS);
         $this->publishes([
             $this->package_dir . '/resources/views' => resource_path('views/vendor/' . self::PACKAGE_NS),
-        ]);
+        ], 'views');
 
         // Package assets
         $this->publishes([

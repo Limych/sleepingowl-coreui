@@ -6,7 +6,6 @@
 namespace Limych\SleepingOwlCoreUI\Templates;
 
 use Illuminate\View\View;
-use KodiCMS\Assets\Assets;
 use Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider;
 use SleepingOwl\Admin\Templates\TemplateDefault;
 
@@ -66,8 +65,7 @@ class CoreUITemplate extends TemplateDefault
      */
     public function initialize()
     {
-        /** @var Assets $assets */
-        $assets = $this->meta();
+        $assets = $this->meta()->assets();
 
         $reg = '/^' . preg_quote($this->getViewNamespace() . '::', '/') . '/';
 

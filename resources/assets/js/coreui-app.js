@@ -22,5 +22,11 @@ window.app = new Vue({
         MobileSidebarToggler,
         SidebarToggler,
         AsideToggler
+    },
+    methods: {
+        handleNavClick (e) {
+            e.preventDefault();
+            e.target.parentElement.classList.toggle('open')
+        }
     }
 });

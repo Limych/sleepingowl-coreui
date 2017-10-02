@@ -13975,7 +13975,7 @@ hr.transparent {
  * Copyright (c) 2017 Andrey "Limych" Khrolenok <andrey@khrolenok.ru>
  */
 
-.header-fixed .app-header ~ * {
+.header-fixed .app-header + * {
   margin-top: 55px;
 }
 
