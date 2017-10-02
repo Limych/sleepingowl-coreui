@@ -1,6 +1,6 @@
 {
     "name": "limych/sleepingowl-coreui",
-    "description": "CoreUI Dashboard Template for SleepingOwl Admin Laravel Framework",
+    "description": "CoreUI Dashboard Template for SleepingOwl Laravel Admin Panel",
     "type": "library",
     "require": {
         "php": ">=5.6.4",
