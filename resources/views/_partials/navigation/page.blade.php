@@ -3,15 +3,7 @@
     <li class="divider"></li>
 @elseif(empty($url))
     {{-- Section --}}
-    <li class="nav-title">
-        {!! $title !!}
-
-        @if($badges->count() > 0)
-            @foreach($badges as $badge)
-                {!! $badge->render() !!}
-            @endforeach
-        @endif
-    </li>
+    <li class="nav-title">{!! $title !!}</li>
     @foreach($pages as $page)
         {!! $page->render() !!}
     @endforeach
