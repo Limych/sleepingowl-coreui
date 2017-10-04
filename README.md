@@ -4,6 +4,7 @@
 
 [![License](https://poser.pugx.org/Limych/sleepingowl-coreui/license)](https://packagist.org/packages/Limych/sleepingowl-coreui)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/95eb3ace-6372-4418-bfb3-81ba25240dcd/mini.png)](https://insight.sensiolabs.com/projects/95eb3ace-6372-4418-bfb3-81ba25240dcd)
+[![StyleCI](https://styleci.io/repos/105209054/shield?branch=develop)](https://styleci.io/repos/105209054)
 
 [CoreUI Dashboard Template](http://coreui.io/) plugin for [SleepingOwl Laravel Admin Panel](http://sleepingowladmin.ru/)
 
