@@ -1,19 +1,18 @@
 <?php
 /**
- * Copyright (c) 2017 Andrey "Limych" Khrolenok <andrey@khrolenok.ru>
+ * Copyright (c) 2017 Andrey "Limych" Khrolenok <andrey@khrolenok.ru>.
  */
 
 namespace Limych\SleepingOwlCoreUI\Templates;
 
 use Illuminate\View\View;
-use Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider;
 use SleepingOwl\Admin\Templates\TemplateDefault;
+use Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider;
 
 class CoreUITemplate extends TemplateDefault
 {
-
     /**
-     * Get the name of template
+     * Get the name of template.
      *
      * @return string
      */
@@ -23,7 +22,7 @@ class CoreUITemplate extends TemplateDefault
     }
 
     /**
-     * Get the version of template
+     * Get the version of template.
      *
      * @return string
      */
@@ -33,7 +32,7 @@ class CoreUITemplate extends TemplateDefault
     }
 
     /**
-     * Get the URL of template site
+     * Get the URL of template site.
      *
      * @return string
      */
@@ -67,7 +66,7 @@ class CoreUITemplate extends TemplateDefault
     {
         $assets = $this->meta()->assets();
 
-        $reg = '/^' . preg_quote($this->getViewNamespace() . '::', '/') . '/';
+        $reg = '/^'.preg_quote($this->getViewNamespace().'::', '/').'/';
 
         foreach (config('coreui.styles', []) as $handle => $style) {
             if (! is_array($style)) {
