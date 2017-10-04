@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2017 Andrey "Limych" Khrolenok <andrey@khrolenok.ru>
+ * Copyright (c) 2017 Andrey "Limych" Khrolenok <andrey@khrolenok.ru>.
  */
 
 namespace Limych\SleepingOwlCoreUI\Navigation;
@@ -18,7 +18,7 @@ class Section extends Page
      */
     public function setUrl($url)
     {
-        throw new DeprecatedException('Method ' . __METHOD__ . ' not implemented.');
+        throw new DeprecatedException('Method '.__METHOD__.' not implemented.');
     }
 
     /**
@@ -26,6 +26,5 @@ class Section extends Page
      */
     public function getUrl()
     {
-        return null;
     }
 }

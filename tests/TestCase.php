@@ -1,18 +1,17 @@
 <?php
 /**
- * Copyright (c) 2017 Andrey "Limych" Khrolenok <andrey@khrolenok.ru>
+ * Copyright (c) 2017 Andrey "Limych" Khrolenok <andrey@khrolenok.ru>.
  */
 
 namespace Tests;
 
 use Illuminate\Support\ServiceProvider;
 use Limych\SleepingOwlCoreUI\Facades\CoreUIFacade;
-use Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Limych\SleepingOwlCoreUI\Providers\CoreUIServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
-
     /**
      * Load package service provider.
      *
@@ -26,7 +25,7 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
-     * Load package alias
+     * Load package alias.
      * @param  \Illuminate\Foundation\Application $app
      * @return array
      */
