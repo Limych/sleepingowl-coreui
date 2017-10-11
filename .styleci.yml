@@ -1,1 +1,5 @@
 preset: laravel
+
+finder:
+    not-name:
+        - "_ide*"

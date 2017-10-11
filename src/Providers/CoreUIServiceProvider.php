@@ -6,6 +6,7 @@
 namespace Limych\SleepingOwlCoreUI\Providers;
 
 use Blade;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Limych\SleepingOwlCoreUI\Templates\CoreUITemplate;
 
@@ -38,6 +39,9 @@ class CoreUIServiceProvider extends ServiceProvider
         $this->app->alias(CoreUITemplate::class, self::PACKAGE_NS);
 
         $this->mergeConfigFrom($this->package_dir.'/config/coreui.php', self::PACKAGE_NS);
+
+        Paginator::defaultView('pagination::bootstrap-4');
+        Paginator::defaultSimpleView('pagination::simple-bootstrap-4');
     }
 
     /**
